@@ -11,7 +11,7 @@
     <div class="container">
         <?php require_once("design-parts/meniu.php"); ?>
         <?php require_once("design-parts/jumbotron.php"); ?>
-        <?php showJumbotron("Index", "Welcome to our website"); ?>
+        <?php showJumbotron($page["pavadinimas"], $page["santrauka"]); ?>
         <?php require_once("design-parts/main.php"); ?>
     </div>
 

@@ -13,9 +13,15 @@ $result = $conn->query($sql);
 //Kiek irasu grazins? 1
 if($result->num_rows != 0) {
     $page = mysqli_fetch_array($result);
+
+
+
+
+
 } else {
-    header("Location:404.php");
+    echo "Tokio puslapio nera";
 }
+
 
 ?>
 
@@ -32,11 +38,8 @@ if($result->num_rows != 0) {
 </head>
 <body>
     <div class="container">
-        <?php require_once("design-parts/meniu.php"); ?>
-        <?php require_once("design-parts/jumbotron.php"); ?>
-
-        <?php showJumbotron($page["pavadinimas"], $page["santrauka"]); ?>
-
+        <h1><?php echo $page["pavadinimas"]; ?></h1>
+        <?php echo $page["santrauka"]; ?>
         <?php echo $page["turinys"]; ?>
         <?php echo $page["kategorijos_id"]; ?>
      </div>
