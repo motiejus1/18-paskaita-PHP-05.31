@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $pages["pavadinimas"]; ?></h5>
                     <p class="card-text"><?php echo $pages["santrauka"]; ?></p>
-                    <a href="puslapiai.php?href=<?php echo $pages["nuoroda"]; ?>" class="btn btn-primary">Go somewhere</a>
+                    <a href="puslapiai.php?href<?php echo $pages["nuoroda"]; ?>" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
 
