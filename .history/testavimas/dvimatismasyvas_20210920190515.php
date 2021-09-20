@@ -54,8 +54,6 @@ echo "</table>";
 // 2 budas foreach ciklas
 
 
-echo "<h1>Foreach budu atvaizduota lentele </h1>";
-
 echo "<table>";
 foreach ($knygos as $kategorija) {
 

@@ -33,41 +33,17 @@ for($i=0; $i < 5; $i++) {
 
 
 
-// 1 budas
-echo "<table>";
 for ($i=0; $i < count($knygos); $i++)  { //einame per kategorijas
     // kiek is viso yra ketegoriju
-    // var_dump($knygos["kategorija".$i]); //masyvas
+    var_dump($knygos["kategorija".$i]); //masyvas
 
     for($j=0; $j< count($knygos["kategorija".$i]); $j++ ) { //einame per knygas, 
         //eilute lentelele -> 1 duomenu bazes irasas
-        echo "<tr>";
-            echo "<td>".$knygos["kategorija".$i][$j]["pavadinimas"]."</td>";
-            echo "<td>".$knygos["kategorija".$i][$j]["autorius"]."</td>";
-            echo "<td>".$knygos["kategorija".$i][$j]["kategorija"]."</td>";
-        echo "</tr>";
+        echo $knygos["kategorija".$i][$j]["pavadinimas"];
+        echo $knygos["kategorija".$i][$j]["autorius"];
     }
 
 }
-echo "</table>";
 
-// 2 budas foreach ciklas
-
-
-echo "<h1>Foreach budu atvaizduota lentele </h1>";
-
-echo "<table>";
-foreach ($knygos as $kategorija) {
-
-    foreach($kategorija as $knyga) {
-        echo "<tr>";
-            echo "<td>".$knyga["pavadinimas"]."</td>";
-            echo "<td>".$knyga["autorius"]."</td>";
-            echo "<td>".$knyga["kategorija"]."</td>";
-        echo "</tr>";
-    }
-
-}
-echo "</table>";
 
 ?>

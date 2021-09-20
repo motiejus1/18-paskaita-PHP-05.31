@@ -53,21 +53,8 @@ echo "</table>";
 
 // 2 budas foreach ciklas
 
-
-echo "<h1>Foreach budu atvaizduota lentele </h1>";
-
-echo "<table>";
 foreach ($knygos as $kategorija) {
-
-    foreach($kategorija as $knyga) {
-        echo "<tr>";
-            echo "<td>".$knyga["pavadinimas"]."</td>";
-            echo "<td>".$knyga["autorius"]."</td>";
-            echo "<td>".$knyga["kategorija"]."</td>";
-        echo "</tr>";
-    }
-
+    
 }
-echo "</table>";
 
 ?>
