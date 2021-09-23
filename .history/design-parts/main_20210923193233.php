@@ -66,6 +66,13 @@
                 ON puslapiai.kategorijos_id = kategorijos.ID
                 WHERE puslapiai.kategorijos_id = $catID
                 ORDER BY puslapiai.ID DESC";    
+
+
+
+                $sql = "SELECT * FROM puslapiai
+                WHERE kategorijos_id = $catID
+                ORDER BY puslapiai.ID DESC
+                ";
             } else {
                 $sql = "SELECT puslapiai.pavadinimas, 
                 puslapiai.nuoroda, 
@@ -83,7 +90,7 @@
             while($pages = mysqli_fetch_array($result)) {
             ?>
             <div class="card col-lg-4" style="width: 18rem;">
-                <img class="card-img-top" src="https://media.istockphoto.com/photos/camera-and-lens-zoom-closeup-picture-id1152344841?s=612x612" alt="Card image cap">
+                <img class="card-img-top" src="..." alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $pages["pavadinimas"]; ?></h5>
                     <p class="card-text"><?php echo $pages["santrauka"]; ?></p>
