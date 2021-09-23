@@ -31,16 +31,14 @@
 
         //    var_dump($totalPages);
 
-        //    echo $totalPages[0];
-        //    echo "<br>";
-        //    echo $totalPages["viso_irasu"];
+           echo $totalPages[0]
            //KIek irasu grazina sita uzklausa?  $sql1. 1
 
 
            echo "<li>";
 
                 echo "<a href='index.php?catID=".$categoryID."'>";
-                    echo $category["pavadinimas"]." (".$totalPages["viso_irasu"].")" ;
+                    echo $category["pavadinimas"];
                 echo "</a>";
            echo "</li>";
         }
@@ -61,14 +59,7 @@
                 ORDER BY puslapiai.ID DESC
                 ";
             } else {
-                $sql = "SELECT puslapiai.pavadinimas, 
-                puslapiai.nuoroda, 
-                puslapiai.santrauka, 
-                kategorijos.pavadinimas AS kategorijos_pavadinimas,
-                kategorijos.ID
-                FROM puslapiai 
-                LEFT JOIN kategorijos
-                ON puslapiai.kategorijos_id = kategorijos.ID
+                $sql = "SELECT * FROM puslapiai
                 ORDER BY puslapiai.ID DESC";
             }
 
@@ -81,9 +72,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $pages["pavadinimas"]; ?></h5>
                     <p class="card-text"><?php echo $pages["santrauka"]; ?></p>
-                    <p class="catd-text"><a  href="index.php?catID=<?php echo $pages["ID"] ?>" ><?php echo $pages["kategorijos_pavadinimas"]; ?></a>  </p>
                     <a href="puslapiai.php?href=<?php echo $pages["nuoroda"]; ?>" class="btn btn-primary">Go somewhere</a>
-                    
                 </div>
             </div>
 

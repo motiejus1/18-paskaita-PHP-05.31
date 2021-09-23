@@ -61,12 +61,7 @@
                 ORDER BY puslapiai.ID DESC
                 ";
             } else {
-                $sql = "SELECT puslapiai.pavadinimas, 
-                puslapiai.nuoroda, 
-                puslapiai.santrauka, 
-                kategorijos.pavadinimas AS kategorijos_pavadinimas,
-                kategorijos.ID
-                FROM puslapiai 
+                $sql = "SELECT puslapiai.pavadinimas, puslapiai.nuoroda, puslapiai.santrauka, kategorijos.pavadinimas AS kategorijos_pavadinimas FROM puslapiai 
                 LEFT JOIN kategorijos
                 ON puslapiai.kategorijos_id = kategorijos.ID
                 ORDER BY puslapiai.ID DESC";
@@ -81,7 +76,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $pages["pavadinimas"]; ?></h5>
                     <p class="card-text"><?php echo $pages["santrauka"]; ?></p>
-                    <p class="catd-text"><a  href="index.php?catID=<?php echo $pages["ID"] ?>" ><?php echo $pages["kategorijos_pavadinimas"]; ?></a>  </p>
+                    <p class="catd-text"><?php echo $pages["santrauka"]; ?>  </p>
                     <a href="puslapiai.php?href=<?php echo $pages["nuoroda"]; ?>" class="btn btn-primary">Go somewhere</a>
                     
                 </div>

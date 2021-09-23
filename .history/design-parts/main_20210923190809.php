@@ -81,7 +81,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $pages["pavadinimas"]; ?></h5>
                     <p class="card-text"><?php echo $pages["santrauka"]; ?></p>
-                    <p class="catd-text"><a  href="index.php?catID=<?php echo $pages["ID"] ?>" ><?php echo $pages["kategorijos_pavadinimas"]; ?></a>  </p>
+                    <p class="catd-text"><a  href="index.php?catID= <?php echo $pages["ID"] ?>" ><?php echo $pages["kategorijos_pavadinimas"]; ?></a>  </p>
                     <a href="puslapiai.php?href=<?php echo $pages["nuoroda"]; ?>" class="btn btn-primary">Go somewhere</a>
                     
                 </div>

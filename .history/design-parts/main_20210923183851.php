@@ -16,31 +16,10 @@
         echo "<ul>";
 
         while($category = mysqli_fetch_array($result)) {
-           //kiek kategorija turi irasu?
-           // atlikti uzklausa i puslapiai duomenu bazes lenteleje
-           
-           //kategorijos ID. $catID - jis ateina is nuorodos
-           
-           $categoryID = $category["ID"];
-           
-           $sql1 = "SELECT COUNT(ID) AS viso_irasu FROM `puslapiai` WHERE kategorijos_id = $categoryID "; //10
-
-           $result1 = $conn->query($sql1);
-           
-           $totalPages = mysqli_fetch_array($result1); //masyva su skaiciumi kiek yra is viso puslapiu
-
-        //    var_dump($totalPages);
-
-        //    echo $totalPages[0];
-        //    echo "<br>";
-        //    echo $totalPages["viso_irasu"];
-           //KIek irasu grazina sita uzklausa?  $sql1. 1
-
-
            echo "<li>";
 
-                echo "<a href='index.php?catID=".$categoryID."'>";
-                    echo $category["pavadinimas"]." (".$totalPages["viso_irasu"].")" ;
+                echo "<a href='index.php?catID=".$category["ID"]."'>";
+                    echo $category["pavadinimas"];
                 echo "</a>";
            echo "</li>";
         }
@@ -55,22 +34,20 @@
 
             if(isset($_GET["catID"]) && !empty($_GET["catID"])) { //egzistuoja
                 $catID = $_GET["catID"];
-                
                 $sql = "SELECT * FROM puslapiai
                 WHERE kategorijos_id = $catID
                 ORDER BY puslapiai.ID DESC
                 ";
             } else {
-                $sql = "SELECT puslapiai.pavadinimas, 
-                puslapiai.nuoroda, 
-                puslapiai.santrauka, 
-                kategorijos.pavadinimas AS kategorijos_pavadinimas,
-                kategorijos.ID
-                FROM puslapiai 
-                LEFT JOIN kategorijos
-                ON puslapiai.kategorijos_id = kategorijos.ID
-                ORDER BY puslapiai.ID DESC";
+
             }
+
+            //kai neegzistuoja kintamasis catID
+            $sql = "SELECT * FROM puslapiai
+            ORDER BY puslapiai.ID DESC";
+
+            //kai kintamas catID egzistuoja
+           
 
             $result = $conn->query($sql);
 
@@ -81,9 +58,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $pages["pavadinimas"]; ?></h5>
                     <p class="card-text"><?php echo $pages["santrauka"]; ?></p>
-                    <p class="catd-text"><a  href="index.php?catID=<?php echo $pages["ID"] ?>" ><?php echo $pages["kategorijos_pavadinimas"]; ?></a>  </p>
                     <a href="puslapiai.php?href=<?php echo $pages["nuoroda"]; ?>" class="btn btn-primary">Go somewhere</a>
-                    
                 </div>
             </div>
 
