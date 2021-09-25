@@ -1,5 +1,5 @@
 
-<?php require("connections.php"); ?>
+<?php require_once("connections.php"); ?>
 
 <!DOCTYPE html>
 <html lang="lt">

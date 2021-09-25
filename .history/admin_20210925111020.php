@@ -1,5 +1,5 @@
 
-<?php require("connections.php"); ?>
+<?php require_once("connections.php"); ?>
 
 <!DOCTYPE html>
 <html lang="lt">
@@ -58,7 +58,7 @@
 
             if($result) {
                 echo "Nustatymas pakeistas sėkmingai";
-                // header("Location: admin.php");
+                header("Location: admin.php");
             } else {
                 echo "Kažkas įvyko negerai";
             }
@@ -68,66 +68,9 @@
         ?>
 
         <h2> Kategoriju atvaizdavimas </h2>
-        <form action="admin.php" method="get">
-            <table class="table table-striped">
-                <tr>
-                    <th>ID</th>
-                    <th>Pavadinimas</th>
-                    <th>Aprasymas</th>
-                    <th>Rodyti</th>
-                </tr>
-            <?php 
-            $sql = "SELECT * FROM kategorijos"; //kuri kategorija yra tevine/ kuri vaikine
-            $result = $conn->query($sql);
-
-            while($category = mysqli_fetch_array($result)) {
-                $categoryID = $category["ID"];
-                echo "<tr>";
-                    echo "<td>".$category["ID"]."</td>";
-                    echo "<td>".$category["pavadinimas"]."</td>";
-                    echo "<td>".$category["aprasymas"]."</td>";
-
-                    if($category["rodyti"] == 0) {
-                        echo "<td>
-                            <input type='checkbox' value='$categoryID' name='category[]'/> 
-                        </td>";
-                    } else {
-                        echo "<td><input type='checkbox' value='$categoryID' name='category[]' checked='true'/> 
-                        </td>";
-                        
-                    }
-
-                    
-                echo "</tr>";
-
-            }
-            
-            ?>
-            </table>
-            <input type="submit" name="submit1" value="Išsaugoti"/>
-        </form>
-
         <?php 
-        if(isset($_GET["submit1"])) {
-
-            // 1 atvaizduoja 0 paslepia
-            //jeigu egzistuoja masyve, vadinasi checkobx pazymeta, vadinasi turi buti 1
-            //jeigu masyve neegzistuoja, vadinasi checkbox kategorija nepazymeta, vadinasi turi buti 0
-            $reiksmes = $_GET["category"];
-            var_dump($reiksmes);
-
-
-            $sql = "UPDATE `kategorijos` SET `rodyti`= 0";
-            $result = $conn->query($sql);
-
-            foreach ($reiksmes as $reiksme) {
-                $sql = "UPDATE `kategorijos` SET `rodyti`= 1 WHERE ID=$reiksme";
-                $result = $conn->query($sql);
-            }
-
-            header("Location: admin.php");
-
-        }
+        $sql = "SELECT * FROM kategorijos"; //kuri kategorija yra tevine/ kuri vaikine
+        $result = $conn->query($s)
         
         ?>
     </div>

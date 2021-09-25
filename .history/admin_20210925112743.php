@@ -1,5 +1,5 @@
 
-<?php require("connections.php"); ?>
+<?php require_once("connections.php"); ?>
 
 <!DOCTYPE html>
 <html lang="lt">
@@ -58,7 +58,7 @@
 
             if($result) {
                 echo "Nustatymas pakeistas sėkmingai";
-                // header("Location: admin.php");
+                header("Location: admin.php");
             } else {
                 echo "Kažkas įvyko negerai";
             }
@@ -89,10 +89,12 @@
 
                     if($category["rodyti"] == 0) {
                         echo "<td>
-                            <input type='checkbox' value='$categoryID' name='category[]'/> 
+                            <input type='checkbox' value='0' name='category[]'/> 
+                            <input type='text' name='category$categoryID'  value='$categoryID' />
                         </td>";
                     } else {
-                        echo "<td><input type='checkbox' value='$categoryID' name='category[]' checked='true'/> 
+                        echo "<td><input type='checkbox' value='1' name='category[]' checked='true'/> 
+                        <input type='text' name='category$categoryID'  value='$categoryID' />
                         </td>";
                         
                     }
@@ -109,24 +111,8 @@
 
         <?php 
         if(isset($_GET["submit1"])) {
-
-            // 1 atvaizduoja 0 paslepia
-            //jeigu egzistuoja masyve, vadinasi checkobx pazymeta, vadinasi turi buti 1
-            //jeigu masyve neegzistuoja, vadinasi checkbox kategorija nepazymeta, vadinasi turi buti 0
             $reiksmes = $_GET["category"];
             var_dump($reiksmes);
-
-
-            $sql = "UPDATE `kategorijos` SET `rodyti`= 0";
-            $result = $conn->query($sql);
-
-            foreach ($reiksmes as $reiksme) {
-                $sql = "UPDATE `kategorijos` SET `rodyti`= 1 WHERE ID=$reiksme";
-                $result = $conn->query($sql);
-            }
-
-            header("Location: admin.php");
-
         }
         
         ?>

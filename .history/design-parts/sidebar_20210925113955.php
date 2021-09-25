@@ -10,7 +10,7 @@ function kategorijuMedis($tevinis_id = 0, $kategorijos_medis_masyvas = '') {
         $kategorijos_medis_masyvas = array();
     }
 
-    $sql = "SELECT * FROM kategorijos WHERE tevinis_id = $tevinis_id AND rodyti = 1"; // grazins paciu pirmu rekursijos veikmo momentu
+    $sql = "SELECT * FROM kategorijos WHERE tevinis_id = $tevinis_id AND "; // grazins paciu pirmu rekursijos veikmo momentu
     
     $result = $conn->query($sql);
 

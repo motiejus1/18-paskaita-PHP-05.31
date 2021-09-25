@@ -1,5 +1,5 @@
 
-<?php require("connections.php"); ?>
+<?php require_once("connections.php"); ?>
 
 <!DOCTYPE html>
 <html lang="lt">
@@ -58,7 +58,7 @@
 
             if($result) {
                 echo "Nustatymas pakeistas sėkmingai";
-                // header("Location: admin.php");
+                header("Location: admin.php");
             } else {
                 echo "Kažkas įvyko negerai";
             }
@@ -90,9 +90,11 @@
                     if($category["rodyti"] == 0) {
                         echo "<td>
                             <input type='checkbox' value='$categoryID' name='category[]'/> 
+                            <input type='text' name='category$categoryID'  value='$categoryID' />
                         </td>";
                     } else {
                         echo "<td><input type='checkbox' value='$categoryID' name='category[]' checked='true'/> 
+                        <input type='text' name='category$categoryID'  value='$categoryID' />
                         </td>";
                         
                     }
@@ -116,16 +118,7 @@
             $reiksmes = $_GET["category"];
             var_dump($reiksmes);
 
-
-            $sql = "UPDATE `kategorijos` SET `rodyti`= 0";
-            $result = $conn->query($sql);
-
-            foreach ($reiksmes as $reiksme) {
-                $sql = "UPDATE `kategorijos` SET `rodyti`= 1 WHERE ID=$reiksme";
-                $result = $conn->query($sql);
-            }
-
-            header("Location: admin.php");
+            for
 
         }
         

@@ -1,5 +1,5 @@
 
-<?php require("connections.php"); ?>
+<?php require_once("connections.php"); ?>
 
 <!DOCTYPE html>
 <html lang="lt">
@@ -58,7 +58,7 @@
 
             if($result) {
                 echo "Nustatymas pakeistas sėkmingai";
-                // header("Location: admin.php");
+                header("Location: admin.php");
             } else {
                 echo "Kažkas įvyko negerai";
             }
