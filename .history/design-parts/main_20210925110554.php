@@ -24,7 +24,7 @@ $selected_value = mysqli_fetch_array($result);
         <div class="col-lg-12">
     <?php } else {?>
         <div class="col-lg-9">
-    <?php } ?>
+    } ?>
         <div class="row">
         <?php 
 

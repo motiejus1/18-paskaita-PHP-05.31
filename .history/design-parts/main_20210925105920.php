@@ -4,27 +4,15 @@
 <?php 
 
 $sql = "SELECT reiksme FROM nustatymai WHERE ID = 1 "; // 1 irasas
-$result = $conn->query($sql);
-$selected_value = mysqli_fetch_array($result);
+                $result = $conn->query($sql);
 
-// 0 reiks kad sidebar neatvaizduojamas
-        // 1 reiks kad sidebar yra kaireje puseje
-        // 2 reiks kad sidebar yra desineje puseje
+                $selected_value = mysqli_fetch_array($result);
 
 ?>
 
 <div class="row">
-
-
-    <?php if ($selected_value[0] == 1) {
-        require("sidebar.php");
-    } ?>
     
-    <?php if($selected_value[0] == 0) { ?>
-        <div class="col-lg-12">
-    <?php } else {?>
-        <div class="col-lg-9">
-    <?php } ?>
+    <div class="col-lg-9">
         <div class="row">
         <?php 
 
@@ -71,8 +59,6 @@ $selected_value = mysqli_fetch_array($result);
             <?php } ?>    
         </div>
     </div>
-    
-    <?php if ($selected_value[0] == 2) {
-        require("sidebar.php");
-    } ?>
+
+    <?php require("sidebar.php"); ?>
 </div>

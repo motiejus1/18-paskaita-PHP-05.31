@@ -21,10 +21,10 @@ $selected_value = mysqli_fetch_array($result);
     } ?>
     
     <?php if($selected_value[0] == 0) { ?>
-        <div class="col-lg-12">
+    <div class="col-lg-12">
     <?php } else {?>
-        <div class="col-lg-9">
-    <?php } ?>
+    <div class="col-lg-9">
+    } ?>
         <div class="row">
         <?php 
 
