@@ -10,29 +10,34 @@
 
 function kategorijuMedis($tevinis_id = 0, $kategorijos_medis_masyvas = '') {
 
-    require("connections.php"); 
+    require("connections.php"); //reikalingas 
+    //nekeitem savo masyvo pagal tevini id.
+    // paieska tevini id atlieka sql
 
     if(!is_array($kategorijos_medis_masyvas)) {
         $kategorijos_medis_masyvas = array();
     }
 
+
     $sql = "SELECT * FROM kategorijos WHERE tevinis_id = $tevinis_id"; // grazins paciu pirmu rekursijos veikmo momentu
-    
+    // visas tevines kategorijas
+
+    // o jeigu kategorija neturi vaikines kategorijos?
+
+    // $sql = "SELECT * FROM kategorijos WHERE tevinis_id = 2";
+    // pasirinkti visas kategorijas kurios priklauso 2 kategorijai
+    // 2 kategorija vaikiniu kategoriju neturi
+    // ateina masyvas su tevinemis kategorijomis
+    //turi tam tikras reiksmes
+    //mes negauname nieko - 0/0 irasu
+    //susidubliuoja
+    //19 kartu mes turime tevines kategorijas
     $result = $conn->query($sql);
 
     if($result->num_rows > 0) {
         $kategorijos_medis_masyvas[] = "<ul>";
         while($category = mysqli_fetch_array($result)) {
-            $categoryID = $category["ID"];
-            $sql1 = "SELECT COUNT(ID) AS viso_irasu FROM `puslapiai` WHERE kategorijos_id = $categoryID ";
-            $result1 = $conn->query($sql1);
-            $totalPages = mysqli_fetch_array($result1);
-            // $kategorijos_medis_masyvas[] = "<li>".$category["pavadinimas"]."</li>";
-            $kategorijos_medis_masyvas[] = "<li>";
-            $kategorijos_medis_masyvas[] = "<a href='index.php?catID=".$categoryID."'>";
-            $kategorijos_medis_masyvas[] = $category["pavadinimas"]." (".$totalPages["viso_irasu"].")" ;
-            $kategorijos_medis_masyvas[] = "</a>";
-            $kategorijos_medis_masyvas[] = "</li>";
+            $kategorijos_medis_masyvas[] = "<li>".$category["pavadinimas"]."</li>";
             $kategorijos_medis_masyvas = kategorijuMedis($category["ID"], $kategorijos_medis_masyvas); //1
         }
         $kategorijos_medis_masyvas[] = "</ul>";
@@ -43,11 +48,6 @@ function kategorijuMedis($tevinis_id = 0, $kategorijos_medis_masyvas = '') {
     return $kategorijos_medis_masyvas; //kaupiasi visos kategorijos
 }
 
-$kategorijos = kategorijuMedis();
-
-foreach($kategorijos as $kategorija) {
-    echo $kategorija;
-}
 
         // $sql = "SELECT * FROM kategorijos ORDER BY pavadinimas ASC";
 

@@ -116,9 +116,13 @@ function kategorijuMedis($tevinis_id = 0, $kategorijos_medis_masyvas = '') {
 
 $kategorijos = kategorijuMedis();
 
-foreach($kategorijos as $kategorija) {
-    echo $kategorija;
-}
+
+
+var_dump($kategorijos);
+
+// foreach($kategorijos as $kategorija) {
+//     echo $kategorija;
+// }
 
 ?>
 

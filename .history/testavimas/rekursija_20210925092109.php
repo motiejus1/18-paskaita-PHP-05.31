@@ -103,9 +103,9 @@ function kategorijuMedis($tevinis_id = 0, $kategorijos_medis_masyvas = '') {
         $kategorijos_medis_masyvas[] = "<ul>";
         while($category = mysqli_fetch_array($result)) {
             $kategorijos_medis_masyvas[] = "<li>".$category["pavadinimas"]."</li>";
-            $kategorijos_medis_masyvas = kategorijuMedis($category["ID"], $kategorijos_medis_masyvas); //1
+            $kategorijos_medis_masyvas[] = kategorijuMedis($category["ID"], $kategorijos_medis_masyvas); //1
         }
-        $kategorijos_medis_masyvas[] = "</ul>";
+    $kategorijos_medis_masyvas[] = "</ul>";
     }
     
 
@@ -116,9 +116,13 @@ function kategorijuMedis($tevinis_id = 0, $kategorijos_medis_masyvas = '') {
 
 $kategorijos = kategorijuMedis();
 
-foreach($kategorijos as $kategorija) {
-    echo $kategorija;
-}
+
+
+var_dump($kategorijos);
+
+// foreach($kategorijos as $kategorija) {
+//     echo $kategorija;
+// }
 
 ?>
 

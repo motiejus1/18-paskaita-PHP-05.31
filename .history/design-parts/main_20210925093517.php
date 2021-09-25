@@ -30,7 +30,7 @@ function kategorijuMedis($tevinis_id = 0, $kategorijos_medis_masyvas = '') {
             // $kategorijos_medis_masyvas[] = "<li>".$category["pavadinimas"]."</li>";
             $kategorijos_medis_masyvas[] = "<li>";
             $kategorijos_medis_masyvas[] = "<a href='index.php?catID=".$categoryID."'>";
-            $kategorijos_medis_masyvas[] = $category["pavadinimas"]." (".$totalPages["viso_irasu"].")" ;
+            $kategorijos_medis_masyvas[] = $category["pavadinimas"];
             $kategorijos_medis_masyvas[] = "</a>";
             $kategorijos_medis_masyvas[] = "</li>";
             $kategorijos_medis_masyvas = kategorijuMedis($category["ID"], $kategorijos_medis_masyvas); //1
