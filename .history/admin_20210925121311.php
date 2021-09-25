@@ -58,9 +58,8 @@
 
             if($result) {
                 echo "Nustatymas pakeistas sėkmingai";
-                // Redirect("admin.php");
+                Redirect("admin.php");
                 // header("Location: admin.php");
-                echo "<script type='text/javascript'>window.top.location='admin.php';</script>";
             } else {
                 echo "Kažkas įvyko negerai";
             }
@@ -128,7 +127,7 @@
             }
 
             // header("Location: admin.php");
-            echo "<script type='text/javascript'>window.top.location='admin.php';</script>";
+            echo "<script type='text/javascript'>window.top.location='http://website.com/';</script>"; exit;
 
         }
         

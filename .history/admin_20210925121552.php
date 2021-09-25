@@ -18,7 +18,7 @@
         
 
         <h2>Sidebar atvaizdavimas </h2>
-        <form action="admin.php">
+        <form action="admin.php" method="post">
             <?php
                 $sql = "SELECT reiksme FROM nustatymai WHERE ID = 1 "; // 1 irasas
                 $result = $conn->query($sql);
@@ -49,9 +49,9 @@
         // 0 reiks kad sidebar neatvaizduojamas
         // 1 reiks kad sidebar yra kaireje puseje
         // 2 reiks kad sidebar yra desineje puseje
-        if(isset($_GET["submit"])) {
+        if(isset($_POST["submit"])) {
             
-            $sidebar = $_GET["sidebar"];
+            $sidebar = $_POST["sidebar"];
 
             $sql = "UPDATE `nustatymai` SET `reiksme`='$sidebar' WHERE ID = 1";
             $result = $conn->query($sql);
@@ -60,7 +60,7 @@
                 echo "Nustatymas pakeistas sėkmingai";
                 // Redirect("admin.php");
                 // header("Location: admin.php");
-                echo "<script type='text/javascript'>window.top.location='admin.php';</script>";
+                // echo "<script type='text/javascript'>window.top.location='admin.php';</script>";
             } else {
                 echo "Kažkas įvyko negerai";
             }
@@ -70,7 +70,7 @@
         ?>
 
         <h2> Kategoriju atvaizdavimas </h2>
-        <form action="admin.php" method="get">
+        <form action="admin.php" method="post">
             <table class="table table-striped">
                 <tr>
                     <th>ID</th>
@@ -110,12 +110,12 @@
         </form>
 
         <?php 
-        if(isset($_GET["submit1"])) {
+        if(isset($_POST["submit1"])) {
 
             // 1 atvaizduoja 0 paslepia
             //jeigu egzistuoja masyve, vadinasi checkobx pazymeta, vadinasi turi buti 1
             //jeigu masyve neegzistuoja, vadinasi checkbox kategorija nepazymeta, vadinasi turi buti 0
-            $reiksmes = $_GET["category"];
+            $reiksmes = $_POST["category"];
             var_dump($reiksmes);
 
 

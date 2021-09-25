@@ -1,6 +1,6 @@
 
 <?php require("connections.php"); ?>
-<?php require("functions.php"); ?>
+
 <!DOCTYPE html>
 <html lang="lt">
 <head>
@@ -8,18 +8,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
-    <?php require("includes.php"); ?>
+    <?php require_once("includes.php"); ?>
 </head>
 <body>
 <div class="container">
         <?php require("design-parts/meniu.php"); ?>
-        <?php require("design-parts/jumbotron.php"); ?>
+        <?php require_once("design-parts/jumbotron.php"); ?>
         <?php showJumbotron("Admin", "Admin page"); ?>
         
 
         <h2>Sidebar atvaizdavimas </h2>
         <form action="admin.php">
-            <?php
+            <?php 
                 $sql = "SELECT reiksme FROM nustatymai WHERE ID = 1 "; // 1 irasas
                 $result = $conn->query($sql);
 
@@ -45,7 +45,7 @@
             <input class="btn btn-primary" type="submit" name="submit" value="Išsaugoti">
         </form>
         
-        <?php
+        <?php 
         // 0 reiks kad sidebar neatvaizduojamas
         // 1 reiks kad sidebar yra kaireje puseje
         // 2 reiks kad sidebar yra desineje puseje
@@ -58,9 +58,7 @@
 
             if($result) {
                 echo "Nustatymas pakeistas sėkmingai";
-                // Redirect("admin.php");
                 // header("Location: admin.php");
-                echo "<script type='text/javascript'>window.top.location='admin.php';</script>";
             } else {
                 echo "Kažkas įvyko negerai";
             }
@@ -78,7 +76,7 @@
                     <th>Aprasymas</th>
                     <th>Rodyti</th>
                 </tr>
-            <?php
+            <?php 
             $sql = "SELECT * FROM kategorijos"; //kuri kategorija yra tevine/ kuri vaikine
             $result = $conn->query($sql);
 
@@ -127,8 +125,7 @@
                 $result = $conn->query($sql);
             }
 
-            // header("Location: admin.php");
-            echo "<script type='text/javascript'>window.top.location='admin.php';</script>";
+            header("Location: admin.php");
 
         }
         

@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
-    <?php require("includes.php"); ?>
+    <?php require_once("includes.php"); ?>
 </head>
 <body>
 <div class="container">
@@ -58,9 +58,8 @@
 
             if($result) {
                 echo "Nustatymas pakeistas sėkmingai";
-                // Redirect("admin.php");
+                Redirect("admin.php");
                 // header("Location: admin.php");
-                echo "<script type='text/javascript'>window.top.location='admin.php';</script>";
             } else {
                 echo "Kažkas įvyko negerai";
             }
@@ -128,8 +127,7 @@
             }
 
             // header("Location: admin.php");
-            echo "<script type='text/javascript'>window.top.location='admin.php';</script>";
-
+            Redirect("admin.php");
         }
         
         ?>
