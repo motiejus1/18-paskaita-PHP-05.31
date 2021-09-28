@@ -11,15 +11,7 @@
                  $result = $conn->query($sql);
                 
                 while($meniu = mysqli_fetch_array($result)) {
-                    $pavadinimas = $meniu["pavadinimas"];
-                    $nuoroda = $meniu["nuoroda"];
-                    $target = $meniu["target"];
-                    $alt = $meniu["alt"];    
-
-
-                    echo "<li class='nav-item'>";
-                        echo "<a class='nav-link' href='$nuoroda' target='$target' alt='$alt' >$pavadinimas</a> ";
-                    echo "</li>";
+                    echo "<li class='nav-item'
                 }
 
                 ?>

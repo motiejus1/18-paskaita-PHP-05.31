@@ -6,19 +6,21 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+            </li>
                 <?php  
                  $sql = "SELECT * FROM meniu";// meniu -> menu
                  $result = $conn->query($sql);
                 
                 while($meniu = mysqli_fetch_array($result)) {
                     $pavadinimas = $meniu["pavadinimas"];
-                    $nuoroda = $meniu["nuoroda"];
-                    $target = $meniu["target"];
-                    $alt = $meniu["alt"];    
+                    $nuor    
 
 
                     echo "<li class='nav-item'>";
-                        echo "<a class='nav-link' href='$nuoroda' target='$target' alt='$alt' >$pavadinimas</a> ";
+                        echo "<a class='nav-link' href=''"
                     echo "</li>";
                 }
 
