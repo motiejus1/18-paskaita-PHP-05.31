@@ -140,42 +140,12 @@
                             
                             ?>
                         </select><br>
-                        <input  type="radio" name="target" value="_self" checked="true"> Atsidarys tame pačiame</br>
+                        <input  type="radio" name="target" value="_self" checket=> Atsidarys tame pačiame</br>
                         <input  type="radio" name="target" value="_blank"> Atsidarys kitame lange</br>
                         
                         <input class="form-control" type="text" name="alt" placeholder="Įveskite nuorodos aprašymą">
                         <input class="btn btn-primary" type="submit" name="create" value="Create">
-                    </form>
-                    
-                    <?php 
-                    if(isset($_GET["create"])) {
-
-                        $pages_href = $_GET["pages"];
-                        $sql = "SELECT pavadinimas FROM puslapiai WHERE nuoroda = '$pages_href'";//viena vieniteli irasa
-                        $result = $conn->query($sql);
-                        
-                        $page = mysqli_fetch_array($result);
-                        $pavadinimas = $page["pavadinimas"]; //pasirinktos puslapio pavadinima, musu meniu punkto pavadinimas
-                        
-                        $target = $_GET["target"];
-                        $alt = $_GET["alt"];
-
-                        $nuoroda = "puslapiai.php?href=".$pages_href;
-
-                        $sql = "INSERT INTO `meniu`(`pavadinimas`, `nuoroda`, `target`, `alt`) VALUES ('$pavadinimas','$nuoroda','$target','$alt')";
-                    
-                        if(mysqli_query($conn, $sql)) {
-                                echo "Meniu punktas sukurtas sėkmingai";
-                                echo "<br>";
-                        } else {
-                                echo "Kazkas ivyko negerai";
-                                echo "<br>";
-                        }
-                    }
-                    
-                    ?>
-
-                    
+                    </form> 
                 <?php } ?>        
         <?php } ?>
 

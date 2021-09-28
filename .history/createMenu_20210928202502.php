@@ -160,7 +160,7 @@
                         $target = $_GET["target"];
                         $alt = $_GET["alt"];
 
-                        $nuoroda = "puslapiai.php?href=".$pages_href;
+                        $nuoroda = "puslapiai.php?href=".$$pages_href;
 
                         $sql = "INSERT INTO `meniu`(`pavadinimas`, `nuoroda`, `target`, `alt`) VALUES ('$pavadinimas','$nuoroda','$target','$alt')";
                     

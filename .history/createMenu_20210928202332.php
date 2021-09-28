@@ -150,17 +150,16 @@
                     <?php 
                     if(isset($_GET["create"])) {
 
-                        $pages_href = $_GET["pages"];
+                        $pages_href = $_GET["pages"]; // 1 2, 42 ir t.t.
                         $sql = "SELECT pavadinimas FROM puslapiai WHERE nuoroda = '$pages_href'";//viena vieniteli irasa
                         $result = $conn->query($sql);
                         
-                        $page = mysqli_fetch_array($result);
-                        $pavadinimas = $page["pavadinimas"]; //pasirinktos puslapio pavadinima, musu meniu punkto pavadinimas
-                        
+                        $category = mysqli_fetch_array($result);
+                        $pavadinimas = $category["pavadinimas"]; //pasirinktos kategorijos pavadinima, musu meniu punkto pavadinimas
                         $target = $_GET["target"];
                         $alt = $_GET["alt"];
 
-                        $nuoroda = "puslapiai.php?href=".$pages_href;
+                        $nuoroda = "index.php?catID=".$category_id;
 
                         $sql = "INSERT INTO `meniu`(`pavadinimas`, `nuoroda`, `target`, `alt`) VALUES ('$pavadinimas','$nuoroda','$target','$alt')";
                     

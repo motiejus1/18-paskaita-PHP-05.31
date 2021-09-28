@@ -147,35 +147,30 @@
                         <input class="btn btn-primary" type="submit" name="create" value="Create">
                     </form>
                     
-                    <?php 
                     if(isset($_GET["create"])) {
+                            $category_id = $_GET["categories"]; // 1 2, 42 ir t.t.
+                            $sql = "SELECT pavadinimas FROM kategorijos WHERE ID = $category_id";//viena vieniteli irasa
+                            $result = $conn->query($sql);
+                            
+                            $category = mysqli_fetch_array($result);
+                            $pavadinimas = $category["pavadinimas"]; //pasirinktos kategorijos pavadinima, musu meniu punkto pavadinimas
+                            $target = $_GET["target"];
+                            $alt = $_GET["alt"];
 
-                        $pages_href = $_GET["pages"];
-                        $sql = "SELECT pavadinimas FROM puslapiai WHERE nuoroda = '$pages_href'";//viena vieniteli irasa
-                        $result = $conn->query($sql);
+                            $nuoroda = "index.php?catID=".$category_id;
+
+                            $sql = "INSERT INTO `meniu`(`pavadinimas`, `nuoroda`, `target`, `alt`) VALUES ('$pavadinimas','$nuoroda','$target','$alt')";
                         
-                        $page = mysqli_fetch_array($result);
-                        $pavadinimas = $page["pavadinimas"]; //pasirinktos puslapio pavadinima, musu meniu punkto pavadinimas
-                        
-                        $target = $_GET["target"];
-                        $alt = $_GET["alt"];
-
-                        $nuoroda = "puslapiai.php?href=".$pages_href;
-
-                        $sql = "INSERT INTO `meniu`(`pavadinimas`, `nuoroda`, `target`, `alt`) VALUES ('$pavadinimas','$nuoroda','$target','$alt')";
-                    
-                        if(mysqli_query($conn, $sql)) {
-                                echo "Meniu punktas sukurtas sėkmingai";
-                                echo "<br>";
-                        } else {
-                                echo "Kazkas ivyko negerai";
-                                echo "<br>";
+                            if(mysqli_query($conn, $sql)) {
+                                    echo "Meniu punktas sukurtas sėkmingai";
+                                    echo "<br>";
+                            } else {
+                                    echo "Kazkas ivyko negerai";
+                                    echo "<br>";
+                            }
                         }
-                    }
-                    
-                    ?>
 
-                    
+
                 <?php } ?>        
         <?php } ?>
 
