@@ -8,36 +8,24 @@
             <ul class="navbar-nav mr-auto">
 
                 <?php 
-                $sql = "SELECT reiksme FROM nustatymai WHERE ID = 3"; //mums priklauso ar dropdown rodo ar ne
-                $result = $conn->query($sql);
-
-                $selected_value = mysqli_fetch_array($result);
-
-                if($selected_value[0] == "rodyti") {?>
-                    <li class="nav-item dropdown">
+                $sql = "SELECT reiksme FROM nustatymai WHERE ID = 3"; 
+                
+                ?>
 
 
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Kategorijis
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">KAtegorija 1</a>
+                    <a class="dropdown-item" href="#">Kategorija 2</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
 
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Kategorijos
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <?php 
-                                $sql = "SELECT * from kategorijos WHERE rodyti = 1";
-                                $result = $conn->query($sql);
 
-                                
-                                while($categories = mysqli_fetch_array($result)) {
-                                    $pavadinimas = $categories["pavadinimas"];
-                                    $id = $categories["ID"];
-                                    echo "<a class='dropdown-item' href='index.php?catID=$id'>$pavadinimas</a>";
-                                }
-                            
-
-                            ?>
-                        </div>
-                    </li>
-                <?php } ?>    
 
                 <?php  
                  $sql = "SELECT * FROM meniu";// meniu -> menu

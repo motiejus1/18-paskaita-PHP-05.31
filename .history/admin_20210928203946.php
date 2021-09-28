@@ -137,45 +137,26 @@
         <h2> Kategoriju dropdown atvaizdavimas </h2>
 
         <form action="admin.php" method="get">
-            <?php 
-
-            $sql = "SELECT reiksme FROM nustatymai WHERE ID = 3 "; // 1 irasas
-            $result = $conn->query($sql);
-
-            $selected_value = mysqli_fetch_array($result);
-            
-            $checked = array("","");
-                
-                if($selected_value[0] == "nerodyti") {
-                    $checked[0] = "checked";
-                } else if ($selected_value[0] == "rodyti") {
-                    $checked[1] = "checked";
-                }
-            
-            ?>
-
-
-            <input  type="radio" name="show_dropdown" value="nerodyti" <?php echo $checked[0]; ?> > Nerodyti kategorijų dropdown</br>
-            <input  type="radio" name="show_dropdown" value="rodyti" <?php echo $checked[1]; ?> > Rodyti kategorijų dropdown</br>
+            <input  type="radio" name="target" value="nerodyti" checked="true"> Nerodyti kategorijų dropdown</br>
+            <input  type="radio" name="target" value="rodyti"> Rodyti kategorijų dropdown</br>
             <input class="btn btn-primary" type="submit" name="submit2" value="Išsaugoti">
         </form>
         
         <?php
-        if(isset($_GET["submit2"])) {
-            $show_dropdown = $_GET["show_dropdown"]; // nerodyti /arba rodyt
+        if(isset())
+        $sidebar = $_GET["sidebar"];
 
-                $sql = "UPDATE `nustatymai` SET `reiksme`='$show_dropdown' WHERE ID = 3";
-                $result = $conn->query($sql);
+            $sql = "UPDATE `nustatymai` SET `reiksme`='$sidebar' WHERE ID = 1";
+            $result = $conn->query($sql);
 
-                if($result) {
-                    echo "Nustatymas pakeistas sėkmingai";
-                    // Redirect("admin.php");
-                    // header("Location: admin.php");
-                    echo "<script type='text/javascript'>window.top.location='admin.php';</script>";
-                } else {
-                    echo "Kažkas įvyko negerai";
-                }
-        }
+            if($result) {
+                echo "Nustatymas pakeistas sėkmingai";
+                // Redirect("admin.php");
+                // header("Location: admin.php");
+                echo "<script type='text/javascript'>window.top.location='admin.php';</script>";
+            } else {
+                echo "Kažkas įvyko negerai";
+            }
          
          
         ?>

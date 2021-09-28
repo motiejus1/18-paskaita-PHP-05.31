@@ -15,26 +15,14 @@
 
                 if($selected_value[0] == "rodyti") {?>
                     <li class="nav-item dropdown">
-
-
-
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Kategorijos
+                        Kategorijis
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <?php 
-                                $sql = "SELECT * from kategorijos WHERE rodyti = 1";
-                                $result = $conn->query($sql);
-
-                                
-                                while($categories = mysqli_fetch_array($result)) {
-                                    $pavadinimas = $categories["pavadinimas"];
-                                    $id = $categories["ID"];
-                                    echo "<a class='dropdown-item' href='index.php?catID=$id'>$pavadinimas</a>";
-                                }
-                            
-
-                            ?>
+                        <a class="dropdown-item" href="#">KAtegorija 1</a>
+                        <a class="dropdown-item" href="#">Kategorija 2</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                     </li>
                 <?php } ?>    

@@ -138,25 +138,22 @@
 
         <form action="admin.php" method="get">
             <?php 
-
-            $sql = "SELECT reiksme FROM nustatymai WHERE ID = 3 "; // 1 irasas
-            $result = $conn->query($sql);
-
-            $selected_value = mysqli_fetch_array($result);
             
-            $checked = array("","");
+            $checked = array("","",0);
                 
-                if($selected_value[0] == "nerodyti") {
+                if($selected_value[0] == 0) {
                     $checked[0] = "checked";
-                } else if ($selected_value[0] == "rodyti") {
+                } else if ($selected_value[0] == 1) {
                     $checked[1] = "checked";
-                }
+                } else if ($selected_value[0] == 2) {
+                    $checked[2] = "checked";
+                }  
             
             ?>
 
 
-            <input  type="radio" name="show_dropdown" value="nerodyti" <?php echo $checked[0]; ?> > Nerodyti kategorijų dropdown</br>
-            <input  type="radio" name="show_dropdown" value="rodyti" <?php echo $checked[1]; ?> > Rodyti kategorijų dropdown</br>
+            <input  type="radio" name="show_dropdown" value="nerodyti" checked="true"> Nerodyti kategorijų dropdown</br>
+            <input  type="radio" name="show_dropdown" value="rodyti"> Rodyti kategorijų dropdown</br>
             <input class="btn btn-primary" type="submit" name="submit2" value="Išsaugoti">
         </form>
         

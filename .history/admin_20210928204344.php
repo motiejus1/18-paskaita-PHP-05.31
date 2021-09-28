@@ -146,17 +146,17 @@
             
             $checked = array("","");
                 
-                if($selected_value[0] == "nerodyti") {
+                if($selected_value[0] == 0) {
                     $checked[0] = "checked";
-                } else if ($selected_value[0] == "rodyti") {
+                } else if ($selected_value[0] == 1) {
                     $checked[1] = "checked";
                 }
             
             ?>
 
 
-            <input  type="radio" name="show_dropdown" value="nerodyti" <?php echo $checked[0]; ?> > Nerodyti kategorijų dropdown</br>
-            <input  type="radio" name="show_dropdown" value="rodyti" <?php echo $checked[1]; ?> > Rodyti kategorijų dropdown</br>
+            <input  type="radio" name="show_dropdown" value="nerodyti" checked="true"> Nerodyti kategorijų dropdown</br>
+            <input  type="radio" name="show_dropdown" value="rodyti"> Rodyti kategorijų dropdown</br>
             <input class="btn btn-primary" type="submit" name="submit2" value="Išsaugoti">
         </form>
         

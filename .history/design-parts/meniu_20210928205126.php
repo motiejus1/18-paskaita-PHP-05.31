@@ -25,12 +25,9 @@
                             <?php 
                                 $sql = "SELECT * from kategorijos WHERE rodyti = 1";
                                 $result = $conn->query($sql);
-
-                                
+                            
                                 while($categories = mysqli_fetch_array($result)) {
-                                    $pavadinimas = $categories["pavadinimas"];
-                                    $id = $categories["ID"];
-                                    echo "<a class='dropdown-item' href='index.php?catID=$id'>$pavadinimas</a>";
+                                    echo '<a class="dropdown-item" href="#">KAtegorija 1</a>';
                                 }
                             
 

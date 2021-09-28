@@ -28,9 +28,8 @@
 
                                 
                                 while($categories = mysqli_fetch_array($result)) {
-                                    $pavadinimas = $categories["pavadinimas"];
-                                    $id = $categories["ID"];
-                                    echo "<a class='dropdown-item' href='index.php?catID=$id'>$pavadinimas</a>";
+                                    $pavadinimas = $categories["pavadinimas"]
+                                    echo '<a class="dropdown-item" href="#">KAtegorija 1</a>';
                                 }
                             
 

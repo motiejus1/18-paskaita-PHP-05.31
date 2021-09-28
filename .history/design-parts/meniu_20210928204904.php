@@ -23,18 +23,13 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <?php 
-                                $sql = "SELECT * from kategorijos WHERE rodyti = 1";
-                                $result = $conn->query($sql);
-
-                                
-                                while($categories = mysqli_fetch_array($result)) {
-                                    $pavadinimas = $categories["pavadinimas"];
-                                    $id = $categories["ID"];
-                                    echo "<a class='dropdown-item' href='index.php?catID=$id'>$pavadinimas</a>";
-                                }
+                                $sql = "SELECT * from kategorijos WHERE rodyti = 1"
                             
 
                             ?>
+                            <a class="dropdown-item" href="#">KAtegorija 1</a>
+                            <a class="dropdown-item" href="#">Kategorija 2</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                     </li>
                 <?php } ?>    
